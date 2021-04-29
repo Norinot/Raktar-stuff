@@ -1,0 +1,2 @@
+felhasználónév;jelszó
+Bence;1234

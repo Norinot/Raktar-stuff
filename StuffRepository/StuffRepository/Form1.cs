@@ -13,15 +13,25 @@ namespace StuffRepository
 {
     public partial class Form1 : Form
     {
+        public int counter;
+
+        public static List<string> asd = new List<string>();
+
         public Form1()
         {
             
             InitializeComponent();
             dataBox.Visible = false;
             button1.Visible = false;
+            button2.Visible = false;
             textBox3.Visible = false;
             textBox4.Visible = false;
             textBox5.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,27 +64,39 @@ namespace StuffRepository
                 textBox5.Visible = true;
                 dataBox.Visible = true;
                 button1.Visible = true;
+                button2.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
                 username_label.Visible = false;
                 password_label.Visible = false;
                 textBox1.Visible = false;
                 textBox2.Visible = false;
                 login_button.Visible = false;
             }
-            Read();
-            for (int i = 0; i < asd.Count; i++)
-            {
-                dataBox.Text += asd[i]+"\n";
-            }
-            
+            GoForth();
         }
-        public static List<string> asd = new List<string>();
+        private void GoForth()
+        {
+            Read();
+            for (int i = 1; i < asd.Count; i++)
+            {
+                string[] dsa = asd[i].Split(';');
+                for (int x = 0; x != 3; x++)
+                {
+                    dataBox.Text += dsa[x] + ";";
+                }
+                dataBox.Text += "\n";
+            }
+        }
         private void Read()
         {
             asd.Clear();
             StreamReader readBooks = new StreamReader("konyvek.txt", Encoding.UTF8);
             while (!readBooks.EndOfStream)
             {
-                // string[] splitting = readBooks.ReadLine().Split(';');
                 asd.Add(readBooks.ReadLine());
             }
             readBooks.Close();
@@ -82,9 +104,17 @@ namespace StuffRepository
         
         private void button1_Click(object sender, EventArgs e)
         {
+            counter = asd.Count;
             StreamWriter wrtIn = new StreamWriter("konyvek.txt", true, Encoding.UTF8);
-            wrtIn.WriteLine(textBox3.Text + ";" + textBox4.Text + ";" + textBox5.Text);
+            wrtIn.WriteLine(counter +";"+ textBox3.Text + ";" + textBox4.Text + ";");
             wrtIn.Close();
+            dataBox.Text = null;
+            GoForth();
+        }
+
+        private void dataBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

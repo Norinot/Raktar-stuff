@@ -84,7 +84,7 @@ namespace StuffRepository
             for (int i = 1; i < asd.Count; i++)
             {
                 string[] dsa = asd[i].Split(';');
-                for (int x = 0; x != 3; x++)
+                for (int x = 0; x <= dsa.Length-1; x++)
                 {
                     dataBox.Text += dsa[x] + ";";
                 }
@@ -115,6 +115,29 @@ namespace StuffRepository
         private void dataBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<string> TmpList = new List<string>();
+            StreamReader TmpRead = new StreamReader("konyvek.txt", Encoding.UTF8);
+            while (!TmpRead.EndOfStream)
+            {
+                string[] TmpSplt = TmpRead.ReadLine().Split(';');
+                if (TmpSplt[0] != textBox5.Text)
+                {
+                    TmpList.Add(TmpSplt[0] + ";" + TmpSplt[1]);
+                }
+            }
+            TmpRead.Close();
+            dataBox.Text = null;
+            StreamWriter TmpWrite = new StreamWriter("konyvek.txt", false, Encoding.UTF8);
+            for (int i = 0; i < TmpList.Count; i++)
+            {
+                TmpWrite.WriteLine(TmpList[i]);
+            }
+            TmpWrite.Close();
+            GoForth();
         }
     }
 }

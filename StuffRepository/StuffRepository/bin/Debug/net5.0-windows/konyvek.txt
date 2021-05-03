@@ -1,5 +1,5 @@
-Id;könycím;szerző;kiadó;kiadási év;
-1;asd;fika;gumball;2010
-2;asd1;fika;gumball;2013
-3;asd2;fika;gumball;2016
-4;asd3;fika;gumball;20205;
+﻿Id;könycím
+1;anyádat;123;
+2;anyádat;4151;
+3;anyádat;515351;
+4;anyádat;52346246;

@@ -45,6 +45,7 @@ namespace StuffRepository
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.PplStatus = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // username_label
@@ -95,7 +96,7 @@ namespace StuffRepository
             // 
             this.dataBox.Location = new System.Drawing.Point(12, 32);
             this.dataBox.Name = "dataBox";
-            this.dataBox.Size = new System.Drawing.Size(206, 246);
+            this.dataBox.Size = new System.Drawing.Size(226, 174);
             this.dataBox.TabIndex = 5;
             this.dataBox.Text = "";
             this.dataBox.TextChanged += new System.EventHandler(this.dataBox_TextChanged);
@@ -186,11 +187,20 @@ namespace StuffRepository
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // PplStatus
+            // 
+            this.PplStatus.Location = new System.Drawing.Point(12, 254);
+            this.PplStatus.Name = "PplStatus";
+            this.PplStatus.Size = new System.Drawing.Size(226, 138);
+            this.PplStatus.TabIndex = 16;
+            this.PplStatus.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PplStatus);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -232,6 +242,7 @@ namespace StuffRepository
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox PplStatus;
     }
 }
 
